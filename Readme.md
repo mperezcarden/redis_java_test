@@ -1,6 +1,8 @@
 # Redis Java Test
 
-Based on this quickstart: https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java
+Based on these quickstarts: 
+*[Samples repository for Azure Cache for Redis](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java)
+* [Quickstart: Use Azure Cache for Redis in Java](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-java-get-started)
 
 # Pre requisites
 
@@ -61,15 +63,20 @@ mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
 
-Debug
+# TODO: Error message
+
 ```
-mvn clean install
-mvn clean package -U
-mvn compile
-mvn -X exec:java -D exec.mainClass=example.demo.App
+[ERROR] Failed to execute goal org.codehaus.mojo:exec-maven-plugin:3.0.0:java (default-cli) on project redistest: An exception occured while executing the Java class. hostname can't be null ->
+ [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal org.codehaus.mojo:exec-maven-plugin:3.0.0:java (default-cli) on project redistest: An exception occured while executing the Java class. hostname can't be null
 ```
 
-# Todo
+```
+Caused by: java.lang.IllegalArgumentException: hostname can't be null
+```
 
-1. Error "java.lang.IllegalArgumentException: hostname can't be null"
-2. Check Gradle
+Try this to check the error message again
+
+```
+mvn -e -f pom.xml compile exec:java -D exec.mainClass=example.demo.App
+```
