@@ -61,8 +61,15 @@ mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
 
-ErrorS?
-
+Debug
 ```
 mvn clean install
+mvn clean package -U
+mvn compile
+mvn -X exec:java -D exec.mainClass=example.demo.App
 ```
+
+# Todo
+
+1. Error "java.lang.IllegalArgumentException: hostname can't be null"
+2. Check Gradle
