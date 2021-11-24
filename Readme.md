@@ -63,6 +63,16 @@ mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
 
+Debug
+
+```
+mvn clean install
+mvn clean package -U
+mvn compile
+mvn -X exec:java -D exec.mainClass=example.demo.App
+
+```
+
 # TODO: Error message
 
 ```
